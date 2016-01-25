@@ -1,0 +1,54 @@
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+}
+form {
+	text-align: center;
+}
+
+input , #major {
+    margin-bottom: 20px;
+	background-color: #E8E8E8;
+	border-style: groove;
+	width: 200px;
+}
+
+label {
+	font-size: 18px;
+}
+
+button {
+	padding: 7px;
+	border-radius: 5px;
+	background-color: #3366FF;
+	color: white;
+	font-weight: bold;
+	
+}
+
+button:hover {
+	background-color: #3399FF;
+}
+
+
+.failerror{
+	text-align: center;
+	font-size: 22px;
+	background-color: #FFB2B2;
+	border-radius: 5px;
+	padding: 7px;
+	color: #FF1919;
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
+
+.successmsg {
+	text-align: center;
+	font-size: 22px;
+	background-color: #94FF94;
+	border-radius: 5px;
+	padding: 7px;
+	color: #33CC33;
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
