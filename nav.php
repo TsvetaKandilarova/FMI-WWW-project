@@ -4,13 +4,14 @@ $toLogOut = (isset($isLogged) && $isLogged && isset($_SESSION['firstName'])); //
 ?>
 
 <header>
-	<img src="./img/img_logo_blue.jpg">
+	<!--<img src="./img/img_logo_blue.jpg">-->
 </header>
 <nav>
 		   <span>Hello, <?php if ($toLogOut) echo $_SESSION['firstName'];
                else echo "Student"; ?>  </span> <!--If we're logged we're grated by name, otherwise just "Student"-->
-    <span class="menu"> Menu </span>
-    <ul id="menu">
+   <span class="menu"> Menu </span>
+    <ul id="menu" clear=left>
+        <!--<li> Menu </li>-->
         <li><a href="index.php">Home Page</a></li>
         <li><?php if (!$toLogOut) //If we're not logged in second bullet is login, otherwise is logout
                 echo '<a href="login.php">Login</a>';

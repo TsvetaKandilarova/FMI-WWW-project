@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 nav {
 	float: left;
 	height: auto;
@@ -8,28 +10,62 @@ nav {
 }
 
 nav ul {
-	width: auto;
-	list-style-type: none;
-	margin-top: 10px;
-	margin-left: 0px;
-	margin-right: 10px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #BDD8DA;
+	width: 200px;
 }
 
 nav .menu {
-	margin-top: 10px;
+    color: #fff;
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 600;
+    font-size: 20px;
+    background-color: #BDD8DA;
+    box-shadow: 0 5px 0 0 #7D9C9F;
+    text-align: center;
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin: 0 0 6px 0;
+	padding: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 nav ul li {
+    clear: left;
+    color: #fff;
+    text-align: center;
+    margin: 0 0 5px 0;  
 	border: 0;
-	margin: 0;
 	padding: 0;
-	height: 20px;
+	height: 25px;
 	display: block;
-	border-bottom: 2px dotted grey;
+
 }
 
 nav ul li a{
+    display: block;
+    padding: 8px 0 8px 16px;
+    color: #fff;
 	text-decoration: none;
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: 600;
+    background-color: #BDD8DA;
+    border: 0;
+	padding: 0;
+	height: 25px;
+    box-shadow: 0 5px 0 0 #7D9C9F;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+li a:hover {
+    background-color: #7D9C9F;
+    color: white;
 }
 
 nav span {
@@ -49,7 +85,7 @@ header img {
 body {
 	display: block;
 	margin: 10px;
-	background-image: url(../img/background.jpg);
+	background-image: url(../img/Abstract-Background-White.jpg);
 }
 
 footer{

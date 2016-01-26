@@ -49,25 +49,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <header>
     <!--Put the navigation on the side-->
     <?php include "nav.php" ?>
-
 </header>
 
 <div class="login">
-    <h1 id="header">Login Page</h1>
+    <h1 id="header">Login</h1>
     <form action="" method="post">
         <!--The action is empty thus the current page will be executed, the metod of submitting the form is post-->
-        <label>User Name:</label><input type="text" name="username" class="box"/><br/><br/>
-        <label>Password:</label><input type="password" name="password" class="box"/><br/><br/>
+        <input type="text" placeholder="Username" name="username" class="box"/><br/><br/>
+        <input type="password" placeholder="Password" name="password" class="box"/><br/><br/>
         <input type="submit" value=" Submit "/><br/>
     </form>
 </div>
 
-<div class="error"><?php if (isset($error) && $error) {
+<div class="error" >
+    <?php if (isset($error) && $error) {
         echo $error;
-    } ?></div>
+    } ?>
 </div> <!--section-->
-</div>
-</div>
+
 <?php include "footer.php" ?>
 </body>
 </html>
