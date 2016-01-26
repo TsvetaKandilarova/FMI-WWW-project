@@ -85,7 +85,7 @@ if (count($_POST) > 0) //if we have varieables from a POST request
     $method = $_SERVER['REQUEST_METHOD'];
     if (isset($result) && $result && isset($resultGrade) && $resultGrade) //if inserts in DB are successful
         echo "<p class=\"successmsg\">Student registered successfully!</p>";
-    else if ($method == $_POST && !isset($result) || !$result || !isset($resultGrade) || !$resultGrade) { //THIS CHECK IS WRONG AND STUPID
+    else if ($method == $_POST && isset($result) && !$result || (isset($resultGrade) && !$resultGrade)) { //THIS CHECK IS WRONG AND STUPID
         echo "<p class=\"failerror\">There was an error with registration!</p>";
     }
     ?>
