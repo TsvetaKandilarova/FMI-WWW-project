@@ -4,11 +4,10 @@ $toLogOut = (isset($isLogged) && $isLogged && isset($_SESSION['firstName'])); //
 ?>
 
 <header>
-	<!--<img src="./img/generic-project.png">-->
 </header>
 <nav>
-		   <span>Hello, <?php if ($toLogOut) echo $_SESSION['firstName'];
-               else echo "Student"; ?>  </span> <!--If we're logged we're grated by name, otherwise just "Student"-->
+		   <span>Welcome<?php if ($toLogOut) echo(", {$_SESSION['firstName']}!");
+               else echo "!"; ?>  </span> <!--If we're logged we're grated by name, otherwise just "Student"-->
    <span class="menu"> Menu </span>
     <ul id="menu" clear=left>
         <!--<li> Menu </li>-->

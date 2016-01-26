@@ -32,16 +32,15 @@ if ($method == 'POST') {
 <body>
 <header>
     <?php include "nav.php" ?> <!--Put in the navigation-->
-    <title>Search Student</title>
 </header>
-<h1>Search Student</h1>
-<h3> Enter a student's id: </h3>
-<form method="post" action=""> <!--Action empty so we'll execute the current page on submit a.k.a. the php above-->
-    <label for="id">ID: </label> <input type="number" name="id" id="id" value="">
-    <button type="submit">Search</button>
 
-    <br/>
+<div class="search">
+<h1 id="header">Search</h1>
+<form method="post" action=""> <!--Action empty so we'll execute the current page on submit a.k.a. the php above-->
+    <input type="text" placeholder="Student ID" name="id" id="id" value="" class="box"/><br/><br/>
+    <input type="submit" value=" Submit "/><br/>
 </form>
+</div>
 
 <?php include "footer.php" ?>
 </body>
