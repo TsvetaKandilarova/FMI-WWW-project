@@ -2,6 +2,6 @@ footer{
   clear: both;
   position: relative;
   z-index: 10;
-  height: 100px;
+  height: 10px;
   margin-top: -3em;
 }
