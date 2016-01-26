@@ -49,19 +49,21 @@ if (count($_POST) > 0) //if we have varieables from a POST request
 </header>
 
 <!--Form HTML-->
-<h1>Register a student</h1>
-<div class="registerStudent">
+
+<div class="edit">
+    <h1 id="header">Register a student</h1>
+    
     <form method="post" action="">
         <!--Action is empty so the current page will be excuted e.g. the php above & metod is post-->
-        <label for="firstName"> First Name: </label> <input type="text" name="firstName" id="firstName" value="">
-        <br/>
-        <label for="lastName"> Last Name: </label> <input type="text" name="lastName" id="lastName" value="">
-        <br/>
-        <label for="id">ID: </label> <input type="number" name="id" id="id" value="">
-        <br/>
-        <label for="fn">Faculty Number: </label> <input type="fn" name="fn" id="fn" value="">
-        <br/>
-        <label for="major">Major: </label>
+        <input type="text" placeholder="First Name" name="firstName" id="firstName" value="" class="box">
+        <input type="text" placeholder="Last Name" name="lastName" id="lastName" value="" class="box">
+        <input type="number" placeholder="Id" name="id" id="id" value="" class="box">
+        <input type="fn" placeholder="Faculty Number" name="fn" id="fn" value="" class="box">
+        <input type="number" placeholder="Year of Graduation" name="graduation" id="graduation" value="" class="box">
+        <input type="number" placeholder="Administrive Group" name="group" id="group" value="" class="box">
+        </br>
+        <label>Major</label>
+        </br>
         <select name="major" id="major">
             <option value=""></option>
             <option value="CS">Computer Science</option>
@@ -73,22 +75,18 @@ if (count($_POST) > 0) //if we have varieables from a POST request
             <option value="APPMATH">Applied Mathematics</option>
             <option value="STAT">Statistics</option>
         </select>
-        <br/>
-        <label for="graduation">Year of graduation: </label> <input type="number" name="graduation" id="graduation"
-                                                                    value="">
-        <br/>
-        <label for="group"> Administrative Group: </label> <input type="number" name="group" id="group" value="">
-        <br/>
-        <button type="submit">Register</button>
+        </br>
+        </br>
+        <input type="submit" value=" Submit "/><br/>
     </form>
 
     <?php
     //After posting form
     $method = $_SERVER['REQUEST_METHOD'];
     if (isset($result) && $result && isset($resultGrade) && $resultGrade) //if inserts in DB are successful
-        echo "<p class=\"successmsg\">Data inserted.</p>";
-    else if ($method == $_POST && !isset($result) && !$result && !isset($resultGrade) && !$resultGrade) { //THIS CHECK IS WRONG AND STUPID
-        echo "<p class=\"failerror\">Data not inserted!</p>";
+        echo "<p class=\"successmsg\">Student registered successfully!</p>";
+    else if ($method == $_POST && !isset($result) || !$result || !isset($resultGrade) || !$resultGrade) { //THIS CHECK IS WRONG AND STUPID
+        echo "<p class=\"failerror\">There was an error with registration!</p>";
     }
     ?>
 </div>
