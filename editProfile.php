@@ -65,33 +65,35 @@ if (count($_POST) > 0) //If we have variables from POST method
     <?php include "nav.php" ?> <!--Adding the navigation-->
 </header>
 
-<h1 style="font-size: 30px"><strong>Edit Student's Profile</strong></h1>
+<div class="edit">
+    <h1 id="header">Edit Student's Profile</h1>
 
-<form id="form" method="post" action=""> <!--On submit: execute php above-->
-    <label for="firstName"> First Name: </label> <input type="text" name="firstName" id="firstName" value="">
-    <br/>
-    <label for="lastName"> Last Name: </label> <input type="text" name="lastName" id="lastName" value="">
-    <br/>
-    <label for="major">Major: </label>
-    <select name="major" id="major">
-        <option value=""></option>
-        <option value="CS">Computer Science</option>
-        <option value="SE">Software Engineering</option>
-        <option value="INF">Informatics</option>
-        <option value="INFMATH">Informatics and Mathematics</option>
-        <option value="IS">Information Systems</option>
-        <option value="MATH">Mathematics</option>
-        <option value="APPMATH">Applied Mathematics</option>
-        <option value="STAT">Statistics</option>
-    </select>
-    <br/>
-    <label for="graduation">Year of graduation: </label> <input type="number" name="graduation" id="graduation"
-                                                                value="">
-    <br/>
-    <label for="group"> Administrative Group: </label> <input type="number" name="group" id="group" value="">
-    <br/>
-    <button type="submit">Edit Profile</button>
-</form>
+    <form id="form" method="post" action=""> <!--On submit: execute php above-->
+        <input type="text" placeholder="First Name" name="firstName" id="firstName" value="" class="box">
+        <br/>
+        <input type="text" placeholder="Last Name" name="lastName" id="lastName" value="" class="box">
+        <br/>
+        <input type="number" placeholder="Year of Graduation" name="graduation" id="graduation"
+                                                                   value="" class="box">
+        <input type="number" placeholder="Administrative Group" name="group" id="group" value="" class="box">
+        </br>
+        <label>Major</label>
+        </br><select name="major" placeholder="Major" id="major" class="box">
+            <option value=""></option>
+            <option value="CS">Computer Science</option>
+            <option value="SE">Software Engineering</option>
+            <option value="INF">Informatics</option>
+            <option value="INFMATH">Informatics and Mathematics</option>
+            <option value="IS">Information Systems</option>
+            <option value="MATH">Mathematics</option>
+            <option value="APPMATH">Applied Mathematics</option>
+            <option value="STAT">Statistics</option>
+        </select>
+        </br>
+        </br>
+        <input type="submit" value=" Submit "/><br/>
+    </form>
+</div>
 
 <?php include "footer.php" ?>
 </body>

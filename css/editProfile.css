@@ -1,42 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 h1 {
-	text-align: center;
-	text-transform: uppercase;
+  font-size: 32px;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
+  background-color: #BDD8DA;
+  margin-bottom: 15px;
+  font-family: 'Open Sans', 'sans-serif';
 }
+
 form {
 	text-align: center;
 }
 
-input , #major {
-    margin-bottom: 20px;
-	background-color: #E8E8E8;
-	border-style: groove;
-	width: 200px;
+.edit {
+  background-color: #ECECEC;
+  opacity: .9;
+  height: 460px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 0px;
+  padding: 0;
+  text-align: center;
+}
+
+.box {
+	border:#7D9C9F solid 2px;
+	margin-left: 5px;
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 14px;
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #acacac;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+input[type="submit"] {
+  font-size: 32px;
+  color: #fff;
+  background-color: #BDD8DA;
+  box-shadow: 0 5px 0 0 #7D9C9F;
+  border: none;
+  padding: 10px;
+  width: 400px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #7D9C9F;
+    color: white;
 }
 
 label {
-	font-size: 18px;
-}
-
-button {
-	padding: 7px;
-	border-radius: 5px;
-	background-color: #3366FF;
-	color: white;
-	font-weight: bold;
-	
-}
-
-button:hover {
-	background-color: #3399FF;
+  color: #666666;
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 14px;   
 }
 
 .failerror{
 	text-align: center;
 	font-size: 22px;
-	background-color: #FFB2B2;
+	background-color: #DDC0B2;
 	border-radius: 5px;
 	padding: 7px;
-	color: #FF1919;
+	color: #AD235E;
 	margin-bottom: 30px;
 	margin-top: 15px;
 }
@@ -44,10 +85,10 @@ button:hover {
 .successmsg {
 	text-align: center;
 	font-size: 22px;
-	background-color: #94FF94;
+	background-color: #BDD8DA;
 	border-radius: 5px;
 	padding: 7px;
-	color: #33CC33;
+	color: #7D9C9F;
 	margin-bottom: 30px;
 	margin-top: 15px;
 }
