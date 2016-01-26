@@ -4,7 +4,7 @@ $toLogOut = (isset($isLogged) && $isLogged && isset($_SESSION['firstName'])); //
 ?>
 
 <header>
-	<!--<img src="./img/img_logo_blue.jpg">-->
+	<!--<img src="./img/generic-project.png">-->
 </header>
 <nav>
 		   <span>Hello, <?php if ($toLogOut) echo $_SESSION['firstName'];
