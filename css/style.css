@@ -116,17 +116,6 @@ table, th, td {
 	text-align: center;
 }
 
-#container {
-	text-align: center;
-	float: right;
-	width: auto;
-}
-.right {
-    float: right;
-    width: auto;
-	background: #ccc;
-	padding: 20px;
-}
 
 .test {
 	text-align: center;
@@ -136,29 +125,59 @@ table, th, td {
 
 }
 
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+h1 {
+  font-size: 32px;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
+  background-color: #BDD8DA;
+  margin-bottom: 15px;
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+
+#container {
+	text-align: center;
+	float: right;
+	width: auto;
+}
+
+.right {
+    float: right;
+    width: auto;
+	background: #ECECEC;
+	padding: 20px;
+}
+
 .left {
     overflow: hidden;
-    background: #ccc;
+    background: #ECECEC;
 	float: left;
 	width: auto;
 	padding: 10px;
 }
 .searchStudent {
-    overflow: hidden;
-    border: 1px solid #000;
-	background: #ccc;
-	margin-left: 25px;
-	margin-right: 25px;
-	 border-radius: 25px;
+    background-color: #ECECEC;
+    opacity: .9;
+    height: 220px;
+    width: 800px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 0px;
+    padding: 0;
+    text-align: center;
 }
 
  
 table, td, th {
-    border: 1px solid rgb(124, 181, 236);
+    border: 1px solid #BDD8DA;
 }
 
 th {
-    background-color: rgb(124, 181, 236);
+    background-color: #BDD8DA;
     color: white;
 }
 
@@ -166,10 +185,56 @@ div.right p {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
+label {
+	font-weight:bold;
+	width:100px;
+	font-size:14px;
+    color: #537D81;
+}
+
+.box {
+	border:#7D9C9F solid 1px;
+	margin-left: 5px;
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 14px;
+}
+
 button {
+    color: #fff;
+    background-color: #BDD8DA;
+    box-shadow: 0 5px 0 0 #7D9C9F;
+    border: none;
 	padding: 7px;
-	border-radius: 5px;
-	background-color: #3366FF;
-	color: white;
 	font-weight: bold;
+    outline: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+button:hover {
+    background-color: #7D9C9F;
+    color: white;
+}
+
+li a{
+    display: block;
+    padding: 8px 0 8px 16px;
+    color: #fff;
+	text-decoration: none;
+    font-family: 'Open Sans', 'sans-serif';
+    font-weight: bold;
+    background-color: #BDD8DA;
+    border: 0;
+	padding: 0;
+	height: 25px;
+    box-shadow: 0 5px 0 0 #7D9C9F;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+li a:hover {
+    background-color: #7D9C9F;
+    color: white;
+    text-decoration: none;
 }

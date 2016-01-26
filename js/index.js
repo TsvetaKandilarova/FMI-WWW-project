@@ -4,7 +4,7 @@ var app = function(isAdmin) {
 		this._isAdmin = isAdmin;
 		this.init = function() {
 			$.nmObj({});
-			jQuery(".moci").click(function () {
+			jQuery(".search").click(function () {
 				$.ajax({
 				  dataType: "json",
 				  url: './studentsInfo.php',

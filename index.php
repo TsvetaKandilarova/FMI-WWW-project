@@ -17,20 +17,21 @@ $current_year = date("Y"); // returns the date
 <body>
 <header>
     <?php include "nav.php" ?> <!--Add navigation on the side-->
-    <h1>Students Info</h1>
+    
 </header>
 
 <div class="searchStudent">
+    <h1>Students Info</h1>
     <div class="left">
         <label for="topStudent"> Select top Students </label>
-        <select name="topStudent" id="topResult">
+        <select name="topStudent" id="topResult" class="box">
             <option value="1">1</option>
             <option value="5" selected>5</option>
             <option value="10">10</option>
             <option value="20">20</option>
         </select> </br>
 
-        <label for="yearGr"> Year of graduate </label> <select name="yearGr" id="class_student"> <!--The fuck?-->
+        <label for="yearGr"> Year of graduate </label> <select name="yearGr" id="class_student" class="box"> 
             <?php
             for ($from = -5; $from < 5; $from++) {
                 $selectedClass = ($from == 0) ? "selected" : "";
@@ -39,7 +40,7 @@ $current_year = date("Y"); // returns the date
             ?>
         </select></br>
 
-        <label for="major"> Select major </label> <select name="major" id="major">
+        <label for="major"> Select major </label> <select name="major" id="major" class="box">
             <option value="default"></option>
             <option value="CS">Computer Science</option>
             <option value="SE">Software Engineering</option>
@@ -52,7 +53,7 @@ $current_year = date("Y"); // returns the date
         </select></br>
 
         <label for="groupNumber"> Select group number</label>
-        <select name="groupNumber" id="groupNumber">
+        <select name="groupNumber" id="groupNumber" class="box">
             <option value="default"></option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -64,23 +65,25 @@ $current_year = date("Y"); // returns the date
 
         <!--Ugh...-->
         </label></br>
-        <a class="moci" href="#"> <!-- href="#" should go to top of page, but magic: This very particular form of link will do nothing,
+        <li><a class="search" href="#"> <!-- href="#" should go to top of page, but magic: This very particular form of link will do nothing,
              and yet still qualify as a valid hyper-reference,
              so you can attach JavaScript event listeners to it.-->
-            Search Students...
-        </a>
+            Search 
+        </a></li>
 
     </div>
     <div class="right">
-        <p> ...or Search by faculty number </p>
-        <input class="fn" value="" type="number"/>
-        <button class="searchByFN"> search by fn</button>
-    </div>
 
+        <label> Search by Faculty Number </label></br>
+        <input class="box" value="" type="number">
+        <button class="searchByFN"> Search</button>
+    </div>
+    
 </div>
 <div class="test"></div>
 
 <div id="container"></div>
+
 <?php include "footer.php" ?>
 </body>
 </html>
