@@ -39,7 +39,6 @@ if ($method == 'POST') {
             $sql = "INSERT INTO result (fn, grade, writtenFor, writtenBy, onDate)
 VALUES ($fn, $grade, '$writtenFor', '$writtenBy','$onDate')";
             $result = mysqli_query($db, $sql);
-            echo "inserted";
         } else {
             $yesTouple = true;
         }
@@ -78,9 +77,9 @@ VALUES ($fn, $grade, '$writtenFor', '$writtenBy','$onDate')";
             <input class="submit" type="submit">
             
             <p class="error hidden"> Please, enter all required information corectly.</p>
-            <?php if (isset($result) && $result) echo "<p>All is right!</p>"; ?>
-            <?php if (isset($noTouple) && $noTouple) echo "<p style='color: #FF0000;'>there is no such touple</p>"; ?>
-            <?php if (isset($yesTouple) && $yesTouple) echo "<p style='color: #FF0000;'>there is such touple</p>"; ?>
+            <?php if (isset($result) && $result) echo "<p class='success'>Success!</p>"; ?>
+            <?php if (isset($noTouple) && $noTouple) echo "<p class='error'>There is no such entry!</p>"; ?>
+            <?php if (isset($yesTouple) && $yesTouple) echo "<p class='error'>There is no such entry!</p>"; ?>
         
         </form>
     </div>            

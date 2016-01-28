@@ -101,11 +101,23 @@ input[type="submit"]:hover {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.success {
+	text-align: center;
+	font-size: 22px;
+	background-color: #BDD8DA;
+	border-radius: 5px;
+	padding: 7px;
+	color: #7D9C9F;
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
+
 p {
-color: #FF0000;
+color: #7D9C9F;
 }
 
 .do {
-color: #FF0000;
+color: #7D9C9F;
 }
 
