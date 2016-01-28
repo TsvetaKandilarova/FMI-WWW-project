@@ -17,7 +17,7 @@ $current_year = date("Y"); // returns the date
 <body>
 <header>
     <?php include "nav.php" ?> <!--Add navigation on the side-->
-    
+
 </header>
 
 <div class="searchStudent">
@@ -31,9 +31,9 @@ $current_year = date("Y"); // returns the date
             <option value="20">20</option>
         </select> </br>
 
-        <label for="yearGr"> Year of graduate </label> <select name="yearGr" id="class_student" class="box"> 
+        <label for="yearGr"> Year of graduate </label> <select name="yearGr" id="class_student" class="box">
             <?php
-            for ($from = -5; $from < 5; $from++) {
+            for ($from = 0; $from < 4; $from++) {
                 $selectedClass = ($from == 0) ? "selected" : "";
                 echo '<option value="' . ($current_year + $from) . '" ' . $selectedClass . ' >' . ($current_year + $from - 1) . '/' . ($current_year + $from) . '</option>';
             }
@@ -68,7 +68,7 @@ $current_year = date("Y"); // returns the date
         <a class="search" href="#"> <!-- href="#" should go to top of page, but magic: This very particular form of link will do nothing,
              and yet still qualify as a valid hyper-reference,
              so you can attach JavaScript event listeners to it.-->
-            Search 
+            Search
         </a>
 
     </div>
@@ -77,7 +77,7 @@ $current_year = date("Y"); // returns the date
         <input class="fn" value="" type="number">
         <button class="searchByFN"> Search</button>
     </div>
-    
+
 </div>
 <div class="test"></div>
 
