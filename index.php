@@ -65,17 +65,16 @@ $current_year = date("Y"); // returns the date
 
         <!--Ugh...-->
         </label></br>
-        <li><a class="search" href="#"> <!-- href="#" should go to top of page, but magic: This very particular form of link will do nothing,
+        <a class="search" href="#"> <!-- href="#" should go to top of page, but magic: This very particular form of link will do nothing,
              and yet still qualify as a valid hyper-reference,
              so you can attach JavaScript event listeners to it.-->
             Search 
-        </a></li>
+        </a>
 
     </div>
     <div class="right">
-
         <label> Search by Faculty Number </label></br>
-        <input class="box" value="" type="number">
+        <input class="fn" value="" type="number">
         <button class="searchByFN"> Search</button>
     </div>
     

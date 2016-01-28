@@ -8,6 +8,7 @@ $query = $db->query($sql) or die("failed!");
 $sql_grade = "SELECT * FROM result where fn = $top order by onDate desc";
 $query1 = $db->query($sql_grade) or die("failed!");
 ?>
+
 <!DOCTYPE html>
 <br/>
 <?php
