@@ -8,48 +8,66 @@ $id = $_GET['identificator'];
 $updatedFields = array();
 if (count($_POST) > 0) //If we have variables from POST method
 {
-    //We're updating each non-empty fiend and printing a message on success and error - obvious stuff
-    //TODO add {} to if's they are ugly!!!
-    if ($_POST['firstName'] != "") {
-        $firstName = $_POST['firstName'];
-        $sqlFirstName = "update students set first_name = '$firstName' where fn=$id";
-        $resultFirstName = mysqli_query($db, $sqlFirstName);
-        if (isset($resultFirstName) && $resultFirstName) $updatedFields[0] = 'first name';
-        else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+    try {
+        $conn = new PDO('mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        if ($_POST['firstName'] != "") {
+            $firstName = $_POST['firstName'];
+
+            $query = $conn->prepare("update students set first_name = '$firstName' where fn=$id");
+            $resultFirstName = $query->execute();
+
+            if (isset($resultFirstName) && $resultFirstName) {
+                $updatedFields[0] = 'first name';
+            } else if (!$resultFirstName) {
+                echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+            }
+        }
+        if ($_POST['lastName'] != "") {
+            $lastName = $_POST['lastName'];
+
+            $query = $conn->prepare("update students set last_name = '$lastName' where fn=$id");
+            $resultLastName = $query->execute();
+
+            if (isset($resultLastName) && $resultLastName) $updatedFields[1] = 'last name';
+            else if (!$resultLastName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+        }
+        if ($_POST['major'] != "") {
+            $major = $_POST['major'];
+
+            $query = $conn->prepare("update students set major = '$major' where fn=$id");
+            $resultMajor = $query->execute();
+
+            if (isset($resultMajor) && $resultMajor) $updatedFields[2] = 'major';
+            else if (!$resultMajor) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+        }
+        if ($_POST['graduation'] != "") {
+            $graduation = $_POST['graduation'];
+
+            $query = $conn->prepare("update students set class = $graduation where fn=$id");
+            $resultGraduation = $query->execute();
+
+            if (isset($resultGraduation) && $resultGraduation) $updatedFields[3] = 'graduation';
+            else if (!$resultGraduation) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+        }
+        if ($_POST['group'] != "") {
+            $group = $_POST['group'];
+
+            $query = $conn->prepare("update students set groupNumber = $group where fn=$id");
+            $resultGroup = $query->execute();
+
+            if (isset($resultGroup) && $resultGroup) $updatedFields[] = 'group';
+            else if (!$resultGroup) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
+        }
+        $successMessage = "Updated fields: ";
+        foreach ($updatedFields as $upd) {
+            if ($upd != "") $successMessage = $successMessage . $upd . '; ';
+        }
+        echo "<p class=\"successmsg\">$successMessage</p>";
+    } catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
     }
-    if ($_POST['lastName'] != "") {
-        $lastName = $_POST['lastName'];
-        $sqlLastName = "update students set last_name = '$lastName' where fn=$id";
-        $resultLastName = mysqli_query($db, $sqlLastName);
-        if (isset($resultLastName) && $resultLastName) $updatedFields[1] = 'last name';
-        else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
-    }
-    if ($_POST['major'] != "") {
-        $major = $_POST['major'];
-        $sqlMajor = "update students set major = '$major' where fn=$id";
-        $resultMajor = mysqli_query($db, $sqlMajor);
-        if (isset($resultMajor) && $resultMajor) $updatedFields[2] = 'major';
-        else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
-    }
-    if ($_POST['graduation'] != "") {
-        $graduation = $_POST['graduation'];
-        $sqlGraduation = "update students set class = $graduation where fn=$id";
-        $resultGraduation = mysqli_query($db, $sqlGraduation);
-        if (isset($resultGraduation) && $resultGraduation) $updatedFields[3] = 'graduation';
-        else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
-    }
-    if ($_POST['group'] != "") {
-        $group = $_POST['group'];
-        $sqlGroup = "update students set groupNumber = $group where fn=$id";
-        $resultGroup = mysqli_query($db, $sqlGroup);
-        if (isset($resultGroup) && $resultGroup) $updatedFields[] = 'group';
-        else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
-    }
-    $successMessage = "Updated fields: ";
-    foreach ($updatedFields as $upd) {
-        if ($upd != "") $successMessage = $successMessage . $upd . '; ';
-    }
-    echo "<p class=\"successmsg\">$successMessage</p>";
 }
 ?>
 
@@ -74,7 +92,7 @@ if (count($_POST) > 0) //If we have variables from POST method
         <input type="text" placeholder="Last Name" name="lastName" id="lastName" value="" class="box">
         <br/>
         <input type="number" placeholder="Year of Graduation" name="graduation" id="graduation"
-                                                                   value="" class="box">
+               value="" class="box">
         <input type="number" placeholder="Administrative Group" name="group" id="group" value="" class="box">
         </br>
         <label>Major</label>
