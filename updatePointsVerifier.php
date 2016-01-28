@@ -5,12 +5,12 @@ include_once('lock.php'); //authentication and permissions
 $method = $_SERVER['REQUEST_METHOD'];
 if ($method == 'POST') {
     $id = $_POST['id'];
-    $sql = "select count(id) from students where id = '$id'";
+    $sql = "select count(fn) from students where fn = '$id'";
     $result = mysqli_query($db, $sql); //Search in DB for Student
 
     //I DON'T LIKE THIS,BUT MAYBE IT'S OK
     while ($row = mysqli_fetch_assoc($result)) { //WHY WHILE?
-        $records = $row['count(id)']; //0 or 1
+        $records = $row['count(fn)']; //0 or 1
     }
 
     if ($records == 0) {  //If there are no records for Student with ID
@@ -37,7 +37,7 @@ if ($method == 'POST') {
 <div class="search">
 <h1 id="header">Search</h1>
 <form method="post" action=""> <!--Action empty so we'll execute the current page on submit a.k.a. the php above-->
-    <input type="text" placeholder="Student ID" name="id" id="id" value="" class="box"/><br/><br/>
+    <input type="text" placeholder="Student FN" name="id" id="id" value="" class="box"/><br/><br/>
     <input type="submit" value=" Submit "/><br/>
 </form>
 </div>

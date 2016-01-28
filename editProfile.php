@@ -12,35 +12,35 @@ if (count($_POST) > 0) //If we have variables from POST method
     //TODO add {} to if's they are ugly!!!
     if ($_POST['firstName'] != "") {
         $firstName = $_POST['firstName'];
-        $sqlFirstName = "update students set first_name = '$firstName' where id=$id";
+        $sqlFirstName = "update students set first_name = '$firstName' where fn=$id";
         $resultFirstName = mysqli_query($db, $sqlFirstName);
         if (isset($resultFirstName) && $resultFirstName) $updatedFields[0] = 'first name';
         else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
     }
     if ($_POST['lastName'] != "") {
         $lastName = $_POST['lastName'];
-        $sqlLastName = "update students set last_name = '$lastName' where id=$id";
+        $sqlLastName = "update students set last_name = '$lastName' where fn=$id";
         $resultLastName = mysqli_query($db, $sqlLastName);
         if (isset($resultLastName) && $resultLastName) $updatedFields[1] = 'last name';
         else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
     }
     if ($_POST['major'] != "") {
         $major = $_POST['major'];
-        $sqlMajor = "update students set major = '$major' where id=$id";
+        $sqlMajor = "update students set major = '$major' where fn=$id";
         $resultMajor = mysqli_query($db, $sqlMajor);
         if (isset($resultMajor) && $resultMajor) $updatedFields[2] = 'major';
         else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
     }
     if ($_POST['graduation'] != "") {
         $graduation = $_POST['graduation'];
-        $sqlGraduation = "update students set class = $graduation where id=$id";
+        $sqlGraduation = "update students set class = $graduation where fn=$id";
         $resultGraduation = mysqli_query($db, $sqlGraduation);
         if (isset($resultGraduation) && $resultGraduation) $updatedFields[3] = 'graduation';
         else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
     }
     if ($_POST['group'] != "") {
         $group = $_POST['group'];
-        $sqlGroup = "update students set groupNumber = $group where id=$id";
+        $sqlGroup = "update students set groupNumber = $group where fn=$id";
         $resultGroup = mysqli_query($db, $sqlGroup);
         if (isset($resultGroup) && $resultGroup) $updatedFields[] = 'group';
         else if (!$resultFirstName) echo "<p class=\"failerror\">There is a problem with updating this information!</p>";
