@@ -19,7 +19,8 @@ $toLogOut = (isset($isLogged) && $isLogged && isset($_SESSION['firstName'])); //
         </li>
         <?php if ($toLogOut) //If we're logged in we have the options to register and edit students
             echo '<li><a href="registration.php">Register new student</a></li>
-							<li><a href="editProfileVerifier.php"> Edit student profile</a></li>';
+							<li><a href="editProfileVerifier.php"> Edit student profile</a></li>
+                            <li><a href="updatePointsVerifier.php"> Update student score</a></li>';
         ?>
         </li>
     </ul>

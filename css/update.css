@@ -1,24 +1,102 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 h1 {
-	text-align: center;
+  font-size: 22px;
+  padding: 10px;
+  margin: 0;
+  color: #fff;
+  background-color: #BDD8DA;
+  margin-bottom: 15px;
 }
+
 form {
 	text-align: center;
 }
+
+.edit {
+  background-color: #ECECEC;
+  opacity: .9;
+  height: 380px;
+  width: 400px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 0px;
+  padding: 0;
+  text-align: center;
+}
+
+.box {
+	border:#7D9C9F solid 2px;
+	margin-left: 5px;
+    font-family: 'Open Sans', 'sans-serif';
+    font-size: 14px;
+}
+
+label {
+  color: #666666;
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 14px;   
+}
+
+input {
+  width: 300px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #acacac;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+
+input[type="submit"] {
+  font-size: 32px;
+  color: #fff;
+  background-color: #BDD8DA;
+  box-shadow: 0 5px 0 0 #7D9C9F;
+  border: none;
+  padding: 10px;
+  width: 400px;
+  display: inline-block;
+  position: relative;
+  outline: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #7D9C9F;
+    color: white;
+}
+
+.successmsg {
+	text-align: center;
+	font-size: 22px;
+	background-color: #BDD8DA;
+	border-radius: 5px;
+	padding: 7px;
+	color: #7D9C9F;
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
+
 .hidden {
 	display: none;
 }
+
 .error {
-	color: #FF0000;
+	text-align: center;
+	font-size: 22px;
+	background-color: #DDC0B2;
+	border-radius: 5px;
+	padding: 7px;
+	color: #AD235E;
+	margin-bottom: 30px;
+	margin-top: 15px;
 }
-.grade {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 35px;
-}
-.WrittenFor {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
+
 .submit {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -26,6 +104,8 @@ form {
 p {
 color: #FF0000;
 }
+
 .do {
 color: #FF0000;
 }
+
