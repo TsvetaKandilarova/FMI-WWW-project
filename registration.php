@@ -16,21 +16,28 @@ if (count($_POST) > 0) //if we have varieables from a POST request
 
     } else {
         //Get data from form
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $id = $_POST['id'];
-        $fn = $_POST['fn'];
-        $major = $_POST['major'];
-        $graduation = $_POST['graduation'];
-        $group = $_POST['group'];
+        try {
+            $conn = new PDO('mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        //Insert data into DB
-        $sql = "insert into students(id, fn, first_name, last_name, major, class, groupNumber) values($id, $fn, '$firstName', '$lastName', '$major', $graduation, $group)";
-        $result = mysqli_query($db, $sql); //will return true if successful
-        //Insert a score of 0 for newly created student
-        $sqlGrade = "insert into result(fn, grade) values ($fn, 0)";
-        $resultGrade = mysqli_query($db, $sqlGrade); //will return true if successful
+            $firstName = $_POST['firstName'];
+            $lastName = $_POST['lastName'];
+            $id = $_POST['id'];
+            $fn = $_POST['fn'];
+            $major = $_POST['major'];
+            $graduation = $_POST['graduation'];
+            $group = $_POST['group'];
 
+            $query = $conn->prepare("insert into students(id, fn, first_name, last_name, major, class, groupNumber) values($id, $fn, '$firstName', '$lastName', '$major', $graduation, $group)");
+            $result = $query->execute();
+
+            //Insert a score of 0 for newly created student
+            $query = $conn->prepare("insert into result(fn, grade) values ($fn, 0)");
+            $resultGrade = $query->execute();
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        $conn = null;
     }
 }
 ?>
@@ -52,7 +59,7 @@ if (count($_POST) > 0) //if we have varieables from a POST request
 
 <div class="edit">
     <h1 id="header">Register a student</h1>
-    
+
     <form method="post" action="">
         <!--Action is empty so the current page will be excuted e.g. the php above & metod is post-->
         <input type="text" placeholder="First Name" name="firstName" id="firstName" value="" class="box">
@@ -85,7 +92,7 @@ if (count($_POST) > 0) //if we have varieables from a POST request
     $method = $_SERVER['REQUEST_METHOD'];
     if (isset($result) && $result && isset($resultGrade) && $resultGrade) //if inserts in DB are successful
         echo "<p class=\"successmsg\">Student registered successfully!</p>";
-    else if ($method == $_POST && isset($result) && !$result || (isset($resultGrade) && !$resultGrade)) { 
+    else if ($method == $_POST && isset($result) && !$result || (isset($resultGrade) && !$resultGrade)) {
         echo "<p class=\"failerror\">There was an error with registration!</p>";
     }
     ?>

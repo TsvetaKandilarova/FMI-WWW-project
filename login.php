@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //The given string is encoded to an escaped SQL string, taking into account the current character set of the connection.
     //That's why we pass the connection object
     $myusername = mysqli_real_escape_string($db, $_POST['username']);
+    echo $myusername;
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
 
