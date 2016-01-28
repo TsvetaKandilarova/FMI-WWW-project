@@ -2,13 +2,22 @@
 header('Access-Control-Allow-Origin: *');
 require "./config.php";
 $top = !empty($_GET["fn"]) ? intval($_GET["fn"]) : 909;
-$db = new PDO('mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
-$sql = "SELECT * FROM students where fn = $top";
-$query = $db->query($sql) or die("failed!");
-$sql_grade = "SELECT * FROM result where fn = $top order by onDate desc";
-$query1 = $db->query($sql_grade) or die("failed!");
-?>
 
+try {
+    $conn = new PDO('mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME, DB_USERNAME, DB_PASSWORD);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $query = $conn->prepare("SELECT * FROM students where fn = $top");
+    $query->execute();
+
+    $query1 = $conn->prepare("SELECT * FROM result where fn = $top order by onDate desc");
+    $query1->execute();
+
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+$conn = null;
+?>
 <!DOCTYPE html>
 <br/>
 <?php
@@ -30,5 +39,3 @@ while ($row = $query1->fetch(PDO::FETCH_ASSOC)) {
 }
 echo '</table>';
 ?>
-
-
